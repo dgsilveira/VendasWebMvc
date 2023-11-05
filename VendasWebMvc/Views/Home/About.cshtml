@@ -1,7 +1,15 @@
-﻿@{
-    ViewData["Title"] = "About";
+﻿@{ 
+    ViewData["Titulo"] = "Sobre";
+    ViewData["Mensagem"] = "Aplicativo Vendas Web MVC do curso C#";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
 
-<p>Use this area to provide additional information.</p>
+<h2>@ViewData["Titulo"]</h2>
+<h3>@ViewData["Mensagem"]</h3>
+
+
+<p>Professor @ViewData["Professor"]</p>
+
+
+<address>
+    <strong>Mais Informações:</strong> <a href="http://educandoweb.com.br">Educandoweb.com.br</a>
+</address>
