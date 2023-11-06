@@ -37,15 +37,19 @@ namespace VendasWebMvc
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<VendasWebMvcContext>(options =>
-                    options.UseMySql(Configuration.GetConnectionString("VendasWebMvcContext"), builder => builder.MigrationsAssembly("VendasWebMvc")));
+                    options.UseMySql(Configuration.GetConnectionString("VendasWebMvcContext"), builder => 
+                    builder.MigrationsAssembly("VendasWebMvc")));
+
+            services.AddScoped<ServicoSemeadura>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ServicoSemeadura servicoSemeadura)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                servicoSemeadura.Semear();
             }
             else
             {
