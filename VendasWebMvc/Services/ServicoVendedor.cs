@@ -2,6 +2,7 @@
 using System.Linq;
 using VendasWebMvc.Data;
 using VendasWebMvc.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace VendasWebMvc.Services
 {
@@ -27,7 +28,7 @@ namespace VendasWebMvc.Services
 
         public Vendedor FindById(int id)
         {
-            return _context.Vendedores.FirstOrDefault(obj => obj.Id == id);
+            return _context.Vendedores.Include(obj => obj.Departamento).FirstOrDefault(obj => obj.Id == id);
         }
 
         public void Remove(int id)
