@@ -17,15 +17,11 @@ namespace VendasWebMvc.Controllers
 
         public IActionResult About()
         {
-            ViewData["Professor"] = "Nélio Alves";
-
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
-
             return View();
         }
 
